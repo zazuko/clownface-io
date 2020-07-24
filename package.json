@@ -19,6 +19,7 @@
   "homepage": "https://github.com/zazuko/clownface-io",
   "dependencies": {
     "@rdfjs/fetch": "^2.0.0",
+    "@rdfjs/term-map": "^1.0.0",
     "clownface": "^1.0.0",
     "file-fetch": "^1.4.1",
     "proto-fetch": "^1.0.0",

@@ -1,5 +1,5 @@
 const namespace = require('@rdfjs/namespace')
-const clownfaceIo = require('..')
+const clownface = require('..')
 
 const ns = {
   dbp: namespace('http://dbpedia.org/property/'),
@@ -9,15 +9,16 @@ const ns = {
 
 async function main () {
   try {
-    const eiffelTowerLink = clownfaceIo().namedNode(ns.dbr('Eiffel_Tower'))
-    const eiffelTower = await eiffelTowerLink.fetch()
+    const eiffelTowerLink = clownface.io().namedNode(ns.dbr('Eiffel_Tower'))
+    const request = eiffelTowerLink.fetch()
+    const eiffelTower = await request.successful
 
     console.log(eiffelTower.term.value)
     console.log(eiffelTower.dataset.size)
     console.log(eiffelTower.out().terms.length)
 
     const mainContractorLink = eiffelTower.out(ns.dbp.mainContractor)
-    const mainContractor = await mainContractorLink.fetch()
+    const mainContractor = await mainContractorLink.fetch().successful
 
     console.log(mainContractor.out(ns.foaf.name).value)
   } catch (err) {

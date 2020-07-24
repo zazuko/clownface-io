@@ -1,24 +1,17 @@
-const toArray= require('clownface/lib/toArray')
-const Clownface = require('clownface/lib/Clownface')
+const clownface = require('clownface')
 const rdf = require('rdf-ext')
 const fetch = require('./lib/fetch')
+const { clownfaceIoHandler } = require('./lib/proxy')
 
-class ClownfaceIo extends Clownface {
-  constructor ({ dataset = rdf.dataset(), graph, term, value, factory = rdf, _context }) {
-    super({ dataset, graph, term, value, factory, _context })
-
-    super.constructor.fromContext = context => {
-      return new this.constructor({ _context: toArray(context), factory: context.factory })
-    }
-  }
-
-  fetch (options) {
-    return fetch.call(this, options)
-  }
+function wrap (pointer) {
+  return new Proxy(pointer, clownfaceIoHandler(fetch))
 }
 
-function factory ({ dataset, graph, term, value, factory, _context } = {}) {
-  return new ClownfaceIo({ dataset, graph, term, value, factory, _context })
+function factory ({ dataset = rdf.dataset(), graph, term, value, factory = rdf, _context } = {}) {
+  return wrap(clownface({ dataset, graph, term, value, factory, _context }))
 }
 
-module.exports = factory
+module.exports = {
+  io: factory,
+  wrap,
+}
