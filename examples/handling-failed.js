@@ -1,7 +1,7 @@
 const namespace = require('@rdfjs/namespace')
 const clownface = require('clownface')
 const rdf = require('rdf-ext')
-const io = require('..')
+const { io } = require('..')
 
 const ns = {
   rdfs: namespace('http://www.w3.org/2000/01/rdf-schema#')
@@ -18,7 +18,7 @@ async function main () {
       rdf.namedNode('http://zazuko.github.com/foo-bar') // Not found
     ])
 
-  const seeAlsoLinks = io.io(graph).out(ns.rdfs.seeAlso)
+  const seeAlsoLinks = io(graph).out(ns.rdfs.seeAlso)
   const request = seeAlsoLinks.fetch()
   const resources = await request
 
