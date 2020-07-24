@@ -10,15 +10,14 @@ const ns = {
 async function main () {
   try {
     const eiffelTowerLink = clownface.io().namedNode(ns.dbr('Eiffel_Tower'))
-    const request = eiffelTowerLink.fetch()
-    const eiffelTower = await request.successful
+    const eiffelTower = await eiffelTowerLink.fetch()
 
     console.log(eiffelTower.term.value)
     console.log(eiffelTower.dataset.size)
     console.log(eiffelTower.out().terms.length)
 
     const mainContractorLink = eiffelTower.out(ns.dbp.mainContractor)
-    const mainContractor = await mainContractorLink.fetch().successful
+    const mainContractor = await mainContractorLink.fetch()
 
     console.log(mainContractor.out(ns.foaf.name).value)
   } catch (err) {
