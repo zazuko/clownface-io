@@ -8,5 +8,7 @@ module.exports = ({ factory, datasetFactory, fetch, clownface }) => {
     return wrap(clownface({ dataset, graph, term, value, factory, _context }))
   }
 
-  return { io, wrap }
+  io.wrap = wrap
+
+  return io
 }

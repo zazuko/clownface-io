@@ -9,7 +9,7 @@ const ns = {
 
 async function main () {
   try {
-    const eiffelTowerLink = clownface.io().namedNode(ns.dbr('Eiffel_Tower'))
+    const eiffelTowerLink = clownface().namedNode(ns.dbr('Eiffel_Tower'))
     const eiffelTower = await eiffelTowerLink.fetch()
 
     console.log(eiffelTower.term.value)

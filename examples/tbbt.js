@@ -2,7 +2,7 @@ const clownface = require('..')
 
 async function main () {
   try {
-    const tbbtLink = clownface.io().namedNode('https://zazuko.github.io/tbbt-ld/dist/tbbt.nq')
+    const tbbtLink = clownface().namedNode('https://zazuko.github.io/tbbt-ld/dist/tbbt.nq')
     const tbbt = await tbbtLink.fetch()
     const amy = tbbt.namedNode('http://localhost:8080/data/person/amy-farrah-fowler')
 
