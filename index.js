@@ -4,4 +4,4 @@ const rdfFetch = require('@rdfjs/fetch')
 const fetch = require('./lib/rawFetch')
 const factory = require('./factory')
 
-module.exports = factory({ datasetFactory: rdf.dataset, factory: rdf, rdfFetch, fetch, clownface })
+module.exports = factory({ factory: rdf, rdfFetch, fetch, clownface })
