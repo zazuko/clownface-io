@@ -28,6 +28,9 @@
   },
   "devDependencies": {
     "@rdfjs/namespace": "^1.1.0",
+    "@rdfjs/dataset": "^1.0.1",
+    "@rdfjs/formats-common": "^2.1.0",
+    "@rdfjs/fetch-lite": "^2.1.0",
     "tbbt-ld": "^1.1.0"
   }
 }
