@@ -1,6 +1,7 @@
 const clownface = require('clownface')
 const rdf = require('rdf-ext')
-const fetch = require('./lib/fetch')
+const rdfFetch = require('@rdfjs/fetch')
+const fetch = require('./lib/rawFetch')
 const factory = require('./factory')
 
-module.exports = factory({ datasetFactory: rdf.dataset, factory: rdf, fetch, clownface })
+module.exports = factory({ datasetFactory: rdf.dataset, factory: rdf, rdfFetch, fetch, clownface })

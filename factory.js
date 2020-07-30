@@ -1,8 +1,9 @@
 const { createHandler } = require('./lib/proxy')
+const wrapFetch = require('./lib/fetch')
 
-module.exports = ({ factory, datasetFactory, fetch, clownface }) => {
+module.exports = ({ factory, datasetFactory, rdfFetch, fetch, clownface }) => {
   function wrap(pointer) {
-    return new Proxy(pointer, createHandler(fetch, factory))
+    return new Proxy(pointer, createHandler(wrapFetch(rdfFetch, fetch), factory))
   }
   function io ({ dataset = datasetFactory(), graph, term, value, factory, _context } = {}) {
     return wrap(clownface({ dataset, graph, term, value, factory, _context }))
