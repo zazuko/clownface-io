@@ -19,14 +19,13 @@ async function main () {
     ])
 
   const seeAlsoLinks = wrap(graph).out(ns.rdfs.seeAlso)
-  const request = seeAlsoLinks.fetch()
-  const resources = await request
+  const fetched = await seeAlsoLinks.fetch()
 
   // awaited request acts just like graph pointer
-  console.log(`Received ${resources.values.length} resources: ${resources.out(ns.rdfs.label, { language: 'en' }).values}`)
+  console.log(`Received ${fetched.values.length} resources: ${fetched.out(ns.rdfs.label, { language: 'en' }).values}`)
 
   // any failures are a TermMap returned by the failures property
-  const failedRequests = await request.failures
+  const failedRequests = fetched.failures
   ;[...failedRequests.entries()].forEach(([term, { error }]) => {
     console.log(`${term.value} failed because ${error.message}`)
   })

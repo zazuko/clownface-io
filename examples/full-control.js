@@ -11,7 +11,7 @@ const clownface = setup({
   rdfFetch,
   fetch: nodeifyFetch,
   clownface: realClownface,
-  formats,
+  formats
 })
 
 const ns = {
