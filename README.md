@@ -9,7 +9,7 @@ This library is based on http://zazuko.github.io/clownface/ and bring all batter
 
 # What does it include already?
 * Standard set of libraries shipped with it.
-* Parsers included in [RDFJS formats common](https://github.com/rdfjs-base/formats-common).
+* Parsers included in [RDF/JS formats common](https://github.com/rdfjs-base/formats-common).
 * RDF accessable through HTTP and file interfaces.
 * Can be used without any knowledge about streams, and the underlying stream based libraries.
 
