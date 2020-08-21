@@ -21,6 +21,6 @@ This library is based on http://zazuko.github.io/clownface/ and bring all batter
 * Resolve resources with multiple strategies
   1. Configured endpoints. 
   2. Configured proxies to dereference. 
-  3. Dereference on HTTP/S, 
-  4. Look for void with SPARQL endpoint).
+  3. Dereference on HTTP/S.
+  4. Look for void with SPARQL endpoint.
 * Writing to different places (SPARQL endpoint, GraphStore, Serializations).
