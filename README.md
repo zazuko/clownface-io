@@ -18,5 +18,9 @@ This library is based on http://zazuko.github.io/clownface/ and bring all batter
 * Configurable to change standard set of libraries.
 * Full control on error management. (E.g. in case of multiple requests in a chain.)
 * Query directly a SPARQL endpoint.
-* Resolve resources with multiple strategies (1. Configured endpoints. 2. Dereference on HTTP/S, 3. Look for void with SPARQL endpoint).
+* Resolve resources with multiple strategies
+  1. Configured endpoints. 
+  2. Configured proxies to dereference. 
+  3. Dereference on HTTP/S, 
+  4. Look for void with SPARQL endpoint).
 * Writing to different places (SPARQL endpoint, GraphStore, Serializations).
