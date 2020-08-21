@@ -7,14 +7,14 @@ The complete package to get you started with working on RDF based on the simple 
 
 This library is based on http://zazuko.github.io/clownface/ and bring all batteries necessary to start accesing and (soon) writing of RDF.
 
-# What does it include already?
+## What does it include already?
 * Standard set of libraries shipped with it. A opiniated sane set of standard configurations.
 * Parsers included in [RDF/JS formats common](https://github.com/rdfjs-base/formats-common).
 * RDF accessable through HTTP and file interfaces.
 * Can be used without any knowledge about streams, and the underlying stream based libraries.
 
 
-# What is on a potential roadmap?
+## What is on a potential roadmap?
 * Configurable to change standard set of libraries.
 * Full control on error management. (E.g. in case of multiple requests in a chain.)
 * Query directly a SPARQL endpoint.
