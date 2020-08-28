@@ -1,8 +1,8 @@
-const clownfaceIo = require('..')
+const clownface = require('..')
 
 async function main () {
   try {
-    const tbbtLink = clownfaceIo().namedNode('file:node_modules/tbbt-ld/dist/tbbt.nq')
+    const tbbtLink = clownface().namedNode(`file:${__dirname}/../node_modules/tbbt-ld/dist/tbbt.nq`)
     const tbbt = await tbbtLink.fetch()
     const amy = tbbt.namedNode('http://localhost:8080/data/person/amy-farrah-fowler')
 

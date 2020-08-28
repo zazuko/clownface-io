@@ -1,5 +1,18 @@
+const formats = require('@rdfjs/formats-common')
+const rdf = require('@rdfjs/dataset')
+const rdfFetch = require('@rdfjs/fetch-lite')
 const namespace = require('@rdfjs/namespace')
-const clownface = require('..')
+const nodeifyFetch = require('nodeify-fetch')
+const realClownface = require('clownface')
+const setup = require('../factory')
+
+const clownface = setup({
+  factory: rdf,
+  rdfFetch,
+  fetch: nodeifyFetch,
+  clownface: realClownface,
+  formats
+})
 
 const ns = {
   dbp: namespace('http://dbpedia.org/property/'),
@@ -14,12 +27,6 @@ async function main () {
 
     console.log(eiffelTower.term.value)
     console.log(eiffelTower.dataset.size)
-    console.log(eiffelTower.out().terms.length)
-
-    const mainContractorLink = eiffelTower.out(ns.dbp.mainContractor)
-    const mainContractor = await mainContractorLink.fetch()
-
-    console.log(mainContractor.out(ns.foaf.name).value)
   } catch (err) {
     console.error(err)
   }
